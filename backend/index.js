@@ -3,23 +3,19 @@ const cors = require('cors');
 require('./db/config');
 const User = require('./db/User');
 const Tickets = require('./db/Tickets');
-const { parse } = require("dotenv");
+const Answers = require('./db/Answers');
+
 const app = express();
+
+var answersArray;
+var user;
 
 app.use(express.json());
 app.use(cors());
 
-app.post("/register", async (req, res) => {
-    let user = new User(req.body);
-    let result = await user.save();
-    result = result.toObject();
-    delete result.password;
-    res.send(req.body);
-})
-
 app.post("/login", async (req, res) => {
     if (req.body.password && req.body.email) {
-        let user = await User.findOne(req.body).select('-password');
+        user = await User.findOne(req.body).select('-password');
         if (user) {
             res.send(user);
         }
@@ -32,11 +28,43 @@ app.post("/login", async (req, res) => {
     }
 })
 
+app.get('/getanswers', async(req, res)=>{
+    let result = await Answers.find();
+    answersArray = result[0]['answers'];
+    // console.log(answersArray);
+    if(answersArray){
+        res.send(answersArray);
+    }
+    else{
+        res.send({result:'Answers not found'})
+    }
+})
+
+app.post('/generateticket', async (req, res)=>{
+    let shuffled  = answersArray.sort(() => 0.5 - Math.random());
+    let row1 = shuffled.slice(0, 5).sort(() => 0.5 - Math.random()).concat((new Array(4)).fill(null)).sort(() => 0.5 - Math.random());
+    let row2 = shuffled.slice(5, 10).sort(() => 0.5 - Math.random()).concat((new Array(4)).fill(null)).sort(() => 0.5 - Math.random());
+    let row3 = shuffled.slice(10, 15).sort(() => 0.5 - Math.random()).concat((new Array(4)).fill(null)).sort(() => 0.5 - Math.random());
+    let array = row1.concat(row2,row3);
+    // console.log(array);
+    Tickets.create( {
+                        'answers': array, 
+                    }, 
+    (err, result ) => {
+        if (err) {
+            console.log('error', err)
+        } else {
+            // console.log('updated', result);
+            res.status(200).send(result);
+        }
+    })
+})
+
 
 app.get("/", async (req, res) => {
-    var user = await User.findOne(req.body).select('-password');
+    // var user = await User.findOne(req.body).select('-password');
     let user_id = user['id'];
-
+    // console.log(user_id);
     let ticket = await Tickets.findOne({ id: user_id });
 
     if (ticket) {

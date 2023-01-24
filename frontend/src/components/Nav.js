@@ -6,20 +6,19 @@ const Nav = () => {
     const navigate = useNavigate();
     const logout = () => {
         localStorage.clear();
-        navigate('/signup');
+        navigate('/login');
     }
 
     return (
         <div>
-            <img alt="logo" className='logo' src='https://static.vecteezy.com/system/resources/thumbnails/006/249/361/small/at-circular-letter-logo-with-circle-brush-design-and-white-background-vector.jpg'/>
+            <img alt="logo" className='logo' src='https://ik.imagekit.io/3q71ttwh2xv/Research/logo_q2e-oFCdX.png?updatedAt=1640679761157'/>
             {
                 auth ? <ul className='nav-ul'>
                     <li><Link to='/'>Technical Tambola MUACM</Link></li>
-                    <li><Link onClick={logout} to='/signup'>Logout ({JSON.parse(auth).name})</Link></li>
+                    <li><Link onClick={logout} to='/login'>Logout ({JSON.parse(auth).name})</Link></li>
                 </ul>
                     :
                     <ul className='nav-ul nav-right'>
-                        <li><Link to='/signup'>SignUp</Link></li>
                         <li><Link to='/login'>Login</Link></li>
                     </ul>
             }

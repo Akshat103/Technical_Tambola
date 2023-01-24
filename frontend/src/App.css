@@ -1,7 +1,15 @@
+@import url(https://fonts.googleapis.com);
+@import url(https://fonts.gstatic.com);
+@import url(https://fonts.googleapis.com/css2?family=Rubik&display=swap);
+
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+
 .nav-ul li {
   display: inline-block;
   padding: 10px;
-  ;
 }
 
 .nav-ul li a {
@@ -10,18 +18,23 @@
   text-decoration: none;
 }
 
+.nav-ul {
+  padding: 15px;
+  margin: 0;
+  background-color: #252525;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   text-align: center;
   width: 100%;
-  background-color: #61dafb;
+  background-color: #252525;
+  color: #fff;
 }
 
-.nav-ul {
-  padding: 5px;
-  margin: 0;
-  background-color: #61dafb;
+.nav-right {
+  text-align: right;
 }
 
 .inputBox {
@@ -32,10 +45,6 @@
   border: 1px solid #252525;
 }
 
-.register {
-  margin-left: 30%;
-}
-
 .login {
   margin-left: 30%;
   margin-top: 100px;
@@ -44,28 +53,19 @@
 .logo {
   width: 70px;
   float: left;
-  border-radius: 50%;
   margin-left: 20px;
-  margin-top: 4px;
-}
-
-.nav-right {
-  text-align: right;
+  margin-top: 1px;
 }
 
 .button {
   margin: 25px;
   padding: 10px;
   width: 100px;
-  background-color: aqua;
-  border: 1px solid #252525;
+  background-color: #8ab4f8;
+  border: none;
   cursor: pointer;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  color: #fff;
+  border-radius: 5px;
 }
 
 .App-header {
@@ -79,57 +79,14 @@
   color: white;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
 .App-link {
   color: #61dafb;
-}
-
-.board {
-  text-align: center;
-  margin-top: 165px;
-}
-
-.tambola-ticket {
-  display: grid;
-  max-width: 360px;
-  grid-template-columns: repeat(9, 38px [col-start]);
-  grid-template-rows: repeat(3, 38px [col-start]);
-  column-gap: 2px;
-  row-gap: 2px;
-  margin: 0 auto;
-  width: 755px;
-  text-align: left;
-}
-
-@media only screen and (min-width: 600px) {
-  .tambola-ticket {
-    max-width: 580px;
-    grid-template-columns: repeat(9, 60px [col-start]);
-    grid-template-rows: repeat(3, 60px [col-start]);
-    column-gap: 5px;
-    row-gap: 5px;
-  }
-}
-
-.tambola-ticket-cell {
-  background-color: #eee;
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #555;
-}
-
-@media only screen and (min-width: 600px) {
-  .tambola-ticket-cell {
-    font-size: 28px;
-  }
-}
-
-.striked {
-  background-color: #f7c327;
-  color: #000;
 }
 
 @keyframes App-logo-spin {
@@ -141,3 +98,72 @@
     transform: rotate(360deg);
   }
 }
+
+.tambola-ticket {
+  display: grid;
+  grid-template-columns: repeat(9, 38px [col-start]);
+  grid-template-rows: repeat(3, 38px [col-start]);
+  column-gap: 2px;
+  row-gap: 2px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.tambola-ticket-cell {
+  background-color: #eee;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+}
+
+.board{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.striked {
+  background-color: #f7c327;
+  color: #000;
+}
+
+#login{
+  margin-left: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .tambola-ticket-cell {
+    font-size: 0.6rem;
+  }
+  .logo{
+    margin-top: 18px;
+  }
+  .nav-ul{
+    padding: 26px;
+  }
+  .login{
+    margin-left: 3%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .tambola-ticket {
+    grid-template-columns: repeat(9, 120px [col-start]);
+    grid-template-rows: repeat(3, 60px [col-start]);
+    column-gap: 5px;
+    row-gap: 5px;
+  }
+  .nav-ul{
+    padding: 18px;
+  }
+} 
