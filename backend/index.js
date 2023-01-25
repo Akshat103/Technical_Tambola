@@ -6,6 +6,9 @@ const Tickets = require('./db/Tickets');
 const Answers = require('./db/Answers');
 const app = express();
 
+// const path = require('path');
+// app.use(express.static(path.join(__dirname, 'build')));
+
 var answersArray;
 var user;
 
