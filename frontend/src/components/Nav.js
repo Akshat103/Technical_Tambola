@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+const logo = require("../images/logo.png")
 
 const Nav = () => {
     const auth = localStorage.getItem('user');
@@ -11,7 +12,7 @@ const Nav = () => {
 
     return (
         <div>
-            <img alt="logo" className='logo' src='https://ik.imagekit.io/3q71ttwh2xv/Research/logo_q2e-oFCdX.png?updatedAt=1640679761157'/>
+            <img alt={logo} className='logo' src={logo}/>
             {
                 auth ? <ul className='nav-ul'>
                     <li><Link to='/'>Technical Tambola MUACM</Link></li>

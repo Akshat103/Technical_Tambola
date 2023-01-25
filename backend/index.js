@@ -1,10 +1,9 @@
+require('./db/config');
 const express = require("express");
 const cors = require('cors');
-require('./db/config');
 const User = require('./db/User');
 const Tickets = require('./db/Tickets');
 const Answers = require('./db/Answers');
-
 const app = express();
 
 var answersArray;
@@ -14,8 +13,8 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/login", async (req, res) => {
-    if (req.body.password && req.body.email) {
-        user = await User.findOne(req.body).select('-password');
+    if (req.body.password && req.body.user) {
+        user = await User.findOne(req.body);
         if (user) {
             res.send(user);
         }
@@ -31,7 +30,6 @@ app.post("/login", async (req, res) => {
 app.get('/getanswers', async(req, res)=>{
     let result = await Answers.find();
     answersArray = result[0]['answers'];
-    // console.log(answersArray);
     if(answersArray){
         res.send(answersArray);
     }
@@ -46,7 +44,6 @@ app.post('/generateticket', async (req, res)=>{
     let row2 = shuffled.slice(5, 10).sort(() => 0.5 - Math.random()).concat((new Array(4)).fill(null)).sort(() => 0.5 - Math.random());
     let row3 = shuffled.slice(10, 15).sort(() => 0.5 - Math.random()).concat((new Array(4)).fill(null)).sort(() => 0.5 - Math.random());
     let array = row1.concat(row2,row3);
-    // console.log(array);
     Tickets.create( {
                         'answers': array, 
                     }, 
@@ -54,7 +51,6 @@ app.post('/generateticket', async (req, res)=>{
         if (err) {
             console.log('error', err)
         } else {
-            // console.log('updated', result);
             res.status(200).send(result);
         }
     })
@@ -62,9 +58,7 @@ app.post('/generateticket', async (req, res)=>{
 
 
 app.get("/", async (req, res) => {
-    // var user = await User.findOne(req.body).select('-password');
     let user_id = user['id'];
-    // console.log(user_id);
     let ticket = await Tickets.findOne({ id: user_id });
 
     if (ticket) {

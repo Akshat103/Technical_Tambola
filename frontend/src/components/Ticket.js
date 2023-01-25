@@ -9,7 +9,6 @@ function Ticket(props) {
             const URL = 'http://127.0.0.1:5000/';
             try {
                 const res = await axios.get(URL);
-                // console.log(res.data['answers']);
                 setGetTicket(res.data['answers']);
             } catch (error) {
                 console.log(error);
@@ -19,7 +18,6 @@ function Ticket(props) {
     }, []);
 
     const handleClick = event => {
-        // console.log(event.currentTarget.textContent);
         if(event.currentTarget.textContent){
             event.currentTarget.classList.add('striked');
         }
