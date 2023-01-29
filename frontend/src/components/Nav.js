@@ -18,8 +18,8 @@ const Nav = () => {
         var user = JSON.parse(localStorage.getItem('user')).name;
 
         var formData = new FormData();
-        formData.append('Timestamp',timestamp);
-        formData.append('Name',user)
+        formData.append('Timestamp', timestamp);
+        formData.append('Name', user)
 
         // for (const pair of formData.entries()) {
         //     console.log(`${pair[0]},${pair[1]}`);
@@ -40,19 +40,21 @@ const Nav = () => {
             <img alt={logo} className='logo' src={logo} />
             {
                 auth ? <ul className='nav-ul'>
-                    <li id='eventHead' ><Link to='/ticket'>Technical Tambola MUACM</Link></li>
+                    <li id='eventHead' ><Link to='/'>Technical Tambola MUACM</Link></li>
                     <li>
                         <button id='logout' >
                             <Link onClick={logout} to='/login'>Logout ({JSON.parse(auth).name})</Link>
                         </button>
                     </li>
                     <li id='handRaise'>
-                        <button onClick={(e) => RaiseHand(e)} id='handRaiseButton' type='button'>✋</button>
+                        <button id='handRaiseButton' onClick={(e) => RaiseHand(e)} type='button'>✋</button>
                     </li>
                 </ul>
                     :
                     <ul className='nav-ul nav-right'>
-                        <li><Link to='/login'>Login</Link></li>
+                        <li>
+                            <a href="https://medicaps.acm.org/index/">MUACM</a>
+                        </li>
                     </ul>
             }
         </div>

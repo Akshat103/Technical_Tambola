@@ -82,11 +82,15 @@ body {
   margin-top: -5px;
 }
 
-#handRaiseButton:active{
+#handRaise{
+  padding: -10px;
+}
+
+#handRaiseButton:active {
   transform: translateY(2px);
 }
 
-.button{
+.button {
   margin: 25px;
   padding: 10px;
   width: 100px;
@@ -139,7 +143,6 @@ body {
   grid-template-rows: repeat(3, 38px [col-start]);
   column-gap: 2px;
   row-gap: 2px;
-  margin-top: 5.5rem;
   margin-left: 2rem;
   margin-right: 2rem;
   position: absolute;
@@ -178,7 +181,7 @@ body {
   font-size: 1.4rem;
 }
 
-@media only screen and (max-width: 1120px) {
+@media only screen and (max-width: 786px) {
   .tambola-ticket-cell {
     font-size: 0.4rem;
   }
@@ -188,22 +191,21 @@ body {
   }
 
   .nav-ul {
-    padding: 10px;
+    padding: 26px;
   }
 
   .login {
     margin-left: 3%;
   }
 
-  #handRaiseButton{
+  #handRaiseButton {
     width: 10.813rem;
-    margin-left: 5rem;
     cursor: pointer;
   }
 
 }
 
-@media only screen and (min-width: 1120px) {
+@media only screen and (min-width: 786px) {
   .tambola-ticket {
     grid-template-columns: repeat(9, 120px [col-start]);
     grid-template-rows: repeat(3, 60px [col-start]);
@@ -220,7 +222,7 @@ body {
     float: right;
   }
 
-  #handRaiseButton{
+  #handRaiseButton {
     width: 10.813rem;
     margin-left: 5rem;
   }

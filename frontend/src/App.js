@@ -13,7 +13,7 @@ export default function App() {
         <Nav />
         <Routes>
           <Route element={<PrivateRoute />}>
-            <Route path='/ticket' element={<Ticket />} />
+            <Route path='/' element={<Ticket />} />
             <Route path='/logout' element={<h1>Logout component</h1>} />
           </Route>
           <Route path='/login' element={<Login />} />

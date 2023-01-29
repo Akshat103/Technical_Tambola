@@ -9,8 +9,8 @@ function Ticket(props) {
         async function fetchTicket() {
             const URL = 'https://tambola-backend.vercel.app/ticket';
             try {
-                const res = await axios.post(URL,{
-                    data: { id : user_id }
+                const res = await axios.post(URL, {
+                    data: { id: user_id }
                 });
                 setGetTicket(res.data['answers']);
             } catch (error) {
