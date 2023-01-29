@@ -54,15 +54,39 @@ body {
   width: 70px;
   float: left;
   margin-left: 20px;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
-#eventName{
+#eventName {
   font-size: 4rem;
   margin-top: -50px;
 }
 
-.button {
+#eventHead {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#logout {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: transparent;
+  border-color: #fff;
+  border-radius: 10px;
+}
+
+#handRaiseButton {
+  border: none;
+  border-radius: 20px;
+  font-size: 1.3rem;
+  margin-top: -5px;
+}
+
+#handRaiseButton:active{
+  transform: translateY(2px);
+}
+
+.button{
   margin: 25px;
   padding: 10px;
   width: 100px;
@@ -74,7 +98,7 @@ body {
   font-size: 1rem;
 }
 
-.button:hover{
+.button:hover {
   background-color: #4FA2D2;
 }
 
@@ -115,7 +139,9 @@ body {
   grid-template-rows: repeat(3, 38px [col-start]);
   column-gap: 2px;
   row-gap: 2px;
-  margin: 0;
+  margin-top: 5.5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -136,7 +162,7 @@ body {
   cursor: pointer;
 }
 
-.board{
+.board {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,34 +173,55 @@ body {
   color: #000;
 }
 
-#login{
+#login {
   margin-left: 25px;
   font-size: 1.4rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1120px) {
   .tambola-ticket-cell {
     font-size: 0.4rem;
   }
-  .logo{
-    margin-top: 18px;
+
+  .logo {
+    margin-top: 10px;
   }
-  .nav-ul{
-    padding: 26px;
+
+  .nav-ul {
+    padding: 10px;
   }
-  .login{
+
+  .login {
     margin-left: 3%;
   }
+
+  #handRaiseButton{
+    width: 10.813rem;
+    margin-left: 5rem;
+    cursor: pointer;
+  }
+
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1120px) {
   .tambola-ticket {
     grid-template-columns: repeat(9, 120px [col-start]);
     grid-template-rows: repeat(3, 60px [col-start]);
     column-gap: 5px;
     row-gap: 5px;
+    margin-top: 2rem;
   }
-  .nav-ul{
+
+  .nav-ul {
     padding: 18px;
   }
-} 
+
+  #handRaise {
+    float: right;
+  }
+
+  #handRaiseButton{
+    width: 10.813rem;
+    margin-left: 5rem;
+  }
+}

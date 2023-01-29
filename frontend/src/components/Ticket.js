@@ -3,12 +3,15 @@ import axios from "axios";
 
 function Ticket(props) {
     const [getTicket, setGetTicket] = useState([]);
+    const user_id = JSON.parse(localStorage.getItem('user')).id;
 
     useEffect(() => {
         async function fetchTicket() {
-            const URL = 'http://127.0.0.1:5000/';
+            const URL = 'https://tambola-backend.vercel.app/ticket';
             try {
-                const res = await axios.get(URL);
+                const res = await axios.post(URL,{
+                    data: { id : user_id }
+                });
                 setGetTicket(res.data['answers']);
             } catch (error) {
                 console.log(error);
@@ -17,12 +20,13 @@ function Ticket(props) {
         fetchTicket();
     }, []);
 
+
     const handleClick = event => {
-        if(event.currentTarget.textContent){
+        if (event.currentTarget.textContent) {
             event.currentTarget.classList.add('striked');
         }
     }
-
+    if (getTicket === undefined) return <h3>Ticket not generated...</h3>
     if (!getTicket.length) return <h3>Loading...</h3>;
 
     return (

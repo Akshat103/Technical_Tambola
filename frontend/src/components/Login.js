@@ -9,12 +9,12 @@ const Login=()=>{
     useEffect(()=>{
         const auth = localStorage.getItem('user');
         if(auth){
-            navigate('/')
+            navigate('/ticket')
         }
     },[])
 
     const handlelogin=async()=>{
-        let result = await fetch('http://127.0.0.1:5000/login',{
+        let result = await fetch('https://tambola-backend.vercel.app/login',{
             method:'POST',
             body:JSON.stringify({user,password}),
             headers:{
@@ -24,7 +24,7 @@ const Login=()=>{
         result = await result.json();
         if(result.name){
             localStorage.setItem('user',JSON.stringify(result));
-            navigate('/');
+            navigate('/ticket');
         }
         else{
             alert("Please enter correct deatils...")
