@@ -15,7 +15,7 @@ It include features for tracking player progress by providing handraise button t
 Clone the project
 
 ```bash
-  git clone https://github.com/Akshat103/DegreeCore
+  git clone https://github.com/Akshat103/Technical_Tambola
 ```
 
 Go to the project directory frontend
