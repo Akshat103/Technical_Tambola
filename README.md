@@ -1,4 +1,57 @@
 # Technical_Tambola
-This web app is made for the event of Technical Tambola organized be ACM Medicaps.
-It provides unique tambola ticket for every user to play game in event.
-Backend is created using express and deployed on vercel. Soon will be sharing link for frontend react app
+A web-based platform for playing Tambola where players can log in and receive their unique tickets to play Tambola. The platform typically consists of a user interface that allows players to log in using their unique ID and password provided during game.
+It include features for tracking player progress by providing handraise button to get response on google sheet and marking off answers on the tickets.
+
+## Tech Stack
+
+**Client:** ReactJS
+
+**Server:** Node, ExpressJS
+
+**Database** MongoDB
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Akshat103/DegreeCore
+```
+
+Go to the project directory frontend
+
+```bash
+  cd frontend
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+Go to the project directory backend
+
+```bash
+  cd backend
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  nodemon
+```
+
+
