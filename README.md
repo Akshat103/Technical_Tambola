@@ -1,8 +1,5 @@
 <br/>
 <p align="center">
-  <a href="https://github.com/Akshat103/Technical_Tambola">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
   <h3 align="center">Technical Tambola</h3>
 
